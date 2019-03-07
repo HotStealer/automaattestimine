@@ -17,10 +17,15 @@ describe('Address Book', function() {
 
 });
 describe('Async Address Book', function() {
-    it('should grab initial contacts', function() {
-        var addressBook = new AddressBook();
+    beforeEach(function(done) {
+        addressBook.getInitialContacts(function() {
+            done();
+        });
+    });
 
-        addressBook.getInitialContacts();
+    it('should grab initial contacts', function(done) {
         expect(addressBook.initialComplete).toBe(true);
-    })
-})
+        done();
+    });
+
+});
