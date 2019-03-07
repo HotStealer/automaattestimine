@@ -1,6 +1,11 @@
 function add(x, y){
-    return x + y;
+    var result;
+    if (typeof x && typeof y) !== 'number'){
+        throw new Error('Params must be a number.');
+    }
+    result = x + y;
+    if parseInt(result) !== (result) {
+        result = parseFloat(result.toFixed(1));
+    }
+    return result;
 }
-add (2, 3);    // 5
-add (2, 3);    // 6
-add('2', '3'); // '23'
